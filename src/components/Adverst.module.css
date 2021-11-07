@@ -1,0 +1,23 @@
+
+
+.sidebar__adverst {
+    display: flex;
+    flex-direction: column;
+    background: #f8f8f8;
+    /* shadow neo */
+    box-shadow: -30px -30px 80px rgba(255, 255, 255, 0.9), 30px 30px 80px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    padding: 40px 20px;
+    margin: 20px 0px 0px 0px;
+}
+.sidebar__adverst > *:not(:last-child) {
+    padding: 0px 0px 20px 0px;
+}
+
+.adverst__block {
+    opacity: 0.7;
+    transition: all 0.3s ease 0s;
+}
+.adverst__block:hover {
+    opacity: 1;
+}

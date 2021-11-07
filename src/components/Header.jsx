@@ -1,14 +1,14 @@
 import React from 'react'
+import s from './Header.module.css';
 
 const Header = () => {
     return (
-        <header className="header">
-            <div className="header__container _container">
-                <div className="header__logo _ibg">
-                    <img className="logo__icon" src="./img/header/Logo_img.svg" alt="" />
+        <header className={s.header}>
+            <div className={`${s.header__container} ${s._container}`}>
+                <div className={`${s.header__logo} ${s._ibg}`}>
+                    <img  src="./img/header/Logo_img.svg" alt="" />
                 </div>
-                <a href="#" className="header__title">Social Media</a>
-
+                <a href="#" className={s.header__title}>Social Media</a>
             </div>
         </header>
 

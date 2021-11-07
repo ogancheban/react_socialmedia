@@ -4,6 +4,7 @@ import './App.css';
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
+import Adverst from "./components/Adverst";
 
 
 const App = () => {
@@ -18,14 +19,7 @@ const App = () => {
                         <div className="main-page__body">
                             <div className="main-page__sidebar sidebar">
                                 <Navbar />
-                                <div className="sidebar__adverst adverst">
-                                    <div className="adverst__block">
-                                        <img src="./img/advert/adverst_01.png" alt="" />
-                                    </div>
-                                    <div className="adverst__block">
-                                        <img src="./img/advert/adverst_02.png" alt="" />
-                                    </div>
-                                </div>
+<Adverst />
                             </div>
                             <Profile />
                         </div>
