@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
-import Profile from "./components/Profile";
-import Adverst from "./components/Adverst";
+import Header from "./components/header/Header";
+import Navbar from "./components/navbar/Navbar";
+import Profile from "./components/profile/Profile";
+import Adverst from "./components/adverst/Adverst";
 
 
 const App = () => {
