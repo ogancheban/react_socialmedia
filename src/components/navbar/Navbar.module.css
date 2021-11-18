@@ -36,6 +36,9 @@
 .menu__link:hover {
     text-decoration: underline;
 }
+.menu__link .activeLink {
+    color: #3d44f1;
+}
 .menu__item:not(:last-child) {
     padding: 0px 0px 20px 0px;
 }

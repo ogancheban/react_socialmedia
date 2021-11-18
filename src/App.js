@@ -1,48 +1,52 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+
 import './App.css';
 import Header from "./components/header/Header";
 import Navbar from "./components/navbar/Navbar";
 import Profile from "./components/profile/Profile";
 import Adverst from "./components/adverst/Adverst";
+import Dialogs from "./components/dialogs/Dialogs";
+import { Routes, Route, Link } from "react-router-dom";
 
 
-const App = () => {
-  return (
+const App = (props) => {
+    return (
+
         <body>
-    <div className="wrapper">
-        <div className="fullscreen">
-     <Header />
-            <main className="main">
-                <section className="page__main main-page">
-                    <div className="main-page__container _container">
-                        <div className="main-page__body">
-                            <div className="main-page__sidebar sidebar">
-                                <Navbar />
-<Adverst />
+        <div className="wrapper">
+            <div className="fullscreen">
+                <Header/>
+                <main className="main">
+                    <section className="page__main main-page">
+                        <div className="main-page__container _container">
+                            <div className="main-page__body">
+                                <div className="main-page__sidebar sidebar">
+                                    <Navbar/>
+                                    <Adverst/>
+                                </div>
+                            <Routes>
+                                <Route path="/profile" element={<Profile />} />
+                                <Route path="/dialogs" element={<Dialogs />} />
+                            </Routes>
+
                             </div>
-                            <Profile />
                         </div>
-                    </div>
-                </section>
+                    </section>
 
 
-            </main>
+                </main>
+            </div>
+
+            <footer className="footer">
+
+            </footer>
         </div>
 
-        <footer className="footer">
 
-        </footer>
-    </div>
+        </body>
 
-    <script src="js/script.js"></script>
-    </body>
-
-  );
+    );
 }
-
-
-
 
 
 export default App;
