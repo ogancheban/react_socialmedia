@@ -5,10 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 
+let posts = [
+    {id: 1, post: 'Hi'},
+    {id: 2, post: 'How are you'},
+    {id: 3, post: 'I\'m happy'},
+    {id: 4, post: 'ghbdtn  asdasdasdasdasdaaaa aaaaaaaaaaaaaaaaasd '},
+    {id: 5, post: 'привет от нас'},
+];
+
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>
-          <App />
+          <App posts={ posts } />
       </BrowserRouter>
 
   </React.StrictMode>,

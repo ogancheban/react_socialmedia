@@ -14,6 +14,7 @@
 }
 .last_post__item {
     display: flex;
+    margin-bottom: 10px;
 
 }
 .last_posts__icon {

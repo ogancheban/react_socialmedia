@@ -12,7 +12,7 @@ const Navbar = () => {
                     <div className={s.menu__icon}>
                         <img src="./img/menu icon/menu_01.svg" alt="Profile"/>
                     </div>
-                    <NavLink exact to='/profile' style={({ isActive }) =>({color: isActive ? 'blue' : ' #34305c'})} className={s.menu__link}>Profile</NavLink>
+                    <NavLink exact to='/profile' style={({ isActive }) =>({color: isActive ? '#3d44f1' : ' #34305c'})} className={s.menu__link}>Profile</NavLink>
                 </li>
                 <li className={s.menu__item}>
                     <div className={s.menu__icon}>

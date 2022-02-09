@@ -10,6 +10,7 @@ import { Routes, Route, Link } from "react-router-dom";
 
 
 const App = (props) => {
+
     return (
 
         <body>
@@ -25,8 +26,13 @@ const App = (props) => {
                                     <Adverst/>
                                 </div>
                             <Routes>
-                                <Route path="/profile" element={<Profile />} />
+                                {/*<Route path="/profile" element={<Profile />} />*/}
+                                <Route path="/profile" element={<Profile posts={props.posts} />} />
                                 <Route path="/dialogs" element={<Dialogs />} />
+                              {/*  <Route path="*" element={<NotFound />} />*/}
+
+                              {/*  <Route path="/profile" render={<Profile />} />
+                                <Route path="/dialogs" render={<Dialogs />} />*/}
                             </Routes>
 
                             </div>
