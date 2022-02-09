@@ -15,7 +15,7 @@ const Profile = (props) => {
             edu:'Univercity Degree', web:'www.ogancheban.com' }
     ]
 
-    let postElements = props.posts.map(p => <MyPosts post={p.post} /> )
+    let postElements = props.state.post.map(p => <MyPosts post={p.post} /> )
     let userElement = UserData.map(u => <User name={u.name} surname={u.surname} birth={u.birth} city={u.city}
                                     edu={u.edu} web={u.web} />)
 

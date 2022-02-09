@@ -12,8 +12,7 @@ const Outmessage = (props) => {
                 <span className={s.message_data_time}>10:12 AM, Today</span>
             </div>
             <div className={`${s.message} ${s.my_message}`}>
-                Are we meeting today? Project has been already finished and I
-                have results to show you.
+                {props.message}
             </div>
             </div>
     );

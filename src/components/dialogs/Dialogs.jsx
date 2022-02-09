@@ -5,29 +5,17 @@ import {NavLink} from "react-router-dom";
 import Inmessage from "./Inmessage";
 import Outmessage from "./Outmessage";
 
-let dialogData = [
-    {id: 1, name: 'Vincent Porter', image: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg', status: 'online'},
-    {id: 2, name: 'Aiden Chavez', image: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_09.jpg', status: 'left 8 mins ago'},
-    {id: 3, name: 'Mike Thomas', image: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_08.jpg', status: 'online'},
-    {id: 4, name: 'Erica Hughes', image: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_07.jpg', status: 'online'},
-    {id: 5, name: 'Ginger Johnston', image: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_06.jpg', status: 'online'},
-]
-
-let dialogMessages = [
-    {id: 1, user: 'Ola', message: 'Hi Vincent, how are you? How is the project coming along?', time: '10:10 AM', date: 'Today'},
-    {id: 2, user: 'Vincent', message: 'Are we meeting today? Project has been already finished and I\n' +
-            '                                    have results to show you.', time: '10:12 AM', date: 'Today'},
-    {id: 3, user: 'Ola', message: 'Well I am not sure. The rest of the team is not here yet. Maybe\n' +
-            '                                    in an hour or so? Have you faced\n' +
-            '                                    any problems at the last phase of the project?', time: '10:14 AM', date: 'Today'},
-    {id: 4, user: 'Vincent', message: 'Иное тестовое сообщание вот так', time: '10:15 AM', date: 'Today'}
-];
-let dialogUsers = dialogData.map( user =>  <Chatuser name={user.name} staus={user.status} id={user.id}
-                                                     image={user.image}/> )
-let messageElements = dialogMessages.map( message => <Outmessage name={message.user} time={message.time} date={message.date} message={message.message}/>)
 
 
-const Dialogs = () => {
+
+
+
+
+
+const Dialogs = (props) => {
+    let dialogUsers = props.state.dialogdata.map( user =>  <Chatuser name={user.name} staus={user.status} id={user.id}
+                                                         image={user.image}/> )
+    let messageElements = props.state.dialogmessages.map( message => <Outmessage name={message.user} time={message.time} date={message.date} message={message.message}/>)
     return (
         <div className={`${s.main_page__envir} ${s.envir}`}>
 
