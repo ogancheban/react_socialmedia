@@ -7,6 +7,7 @@ import Profile from "./components/profile/Profile";
 import Adverst from "./components/adverst/Adverst";
 import Dialogs from "./components/dialogs/Dialogs";
 import { Routes, Route, Link } from "react-router-dom";
+import {addPost} from "./Redux/State";
 
 
 const App = (props) => {
@@ -29,6 +30,7 @@ const App = (props) => {
                                 {/*<Route path="/profile" element={<Profile />} />*/}
                                 <Route path="/profile" element={<Profile
                                     state ={props.state.profilePage}
+                                    addPost = {props.addPost}
                                 />}
                                 />
                                 <Route path="/dialogs" element={<Dialogs

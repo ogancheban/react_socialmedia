@@ -4,6 +4,7 @@ import Chatuser from "./Chatuser";
 import {NavLink} from "react-router-dom";
 import Inmessage from "./Inmessage";
 import Outmessage from "./Outmessage";
+import Inputform from "../profile/Posts/InputForm/InputForm";
 
 
 
@@ -123,6 +124,7 @@ const Dialogs = (props) => {
                         <button>Send</button>
 
                     </div>
+                    <Inputform />
 
 
                 </div>

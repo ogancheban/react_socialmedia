@@ -17,3 +17,21 @@
 .form_area:focus {
     color: black;
 }
+.form_btn {
+    background: #3d44f1;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    display: flex;
+    min-height: 45px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    transition: all 0.3s ease 0s;
+    padding: 0px 51px;
+    margin-left: auto;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 122%;
+}
