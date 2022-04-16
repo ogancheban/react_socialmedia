@@ -16,21 +16,24 @@ const Profile = (props) => {
             edu:'Univercity Degree', web:'www.ogancheban.com' }
     ]
 
-    let postElements = props.state.post.map(p => <MyPosts post={p.post}  /> )
+    // let postElements = props.state.post.map(p => <MyPosts post={p.post}  /> )
     let userElement = UserData.map(u => <User name={u.name} surname={u.surname} birth={u.birth} city={u.city}
                                     edu={u.edu} web={u.web} />)
-
-
 
 
     return (
         <div className={`${s.main_page__envir} ${s.envir}`}>
             <Baner />
             {userElement}
-               <div className={s.envir__posts}>
-                <Inputform addPost={addPost}/>
-                   {postElements}
-                </div>
+            <Inputform
+
+                addPost={props.addPost}/>
+            <MyPosts posts = {props.myPosts.posts}
+                     addPost={props.addPost}/>
+            {/*<MyPosts
+                posts ={props.state.profilePage.posts}
+            />*/}
+            {/*{postElements}*/}
 
 
         </div>

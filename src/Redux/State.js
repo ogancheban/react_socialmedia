@@ -3,10 +3,13 @@ import {rerenderEntireTree} from "../render";
 
 let state = {
     profilePage: {
-        post: [
+
+        posts: [
             {id: 1, post: 'Hi'},
             {id: 5, post: 'привет от нас'},
-            {id: 5, post: 'не получается'}
+            {id: 5, post: 'не получается'},
+            {id: 6, post: 'ну что же - вперед!!'},
+            {id: 7, post: '!!!! добавлено из статену что же - вперед!!'}
         ]
     },
 
@@ -27,19 +30,26 @@ let state = {
                     '                                    any problems at the last phase of the project?', time: '10:14 AM', date: 'Today'},
             {id: 4, user: 'Vincent', message: 'Снова проверка Иное тестовое сообщание вот так', time: '10:15 AM', date: 'Today'}
         ]
-    }
+    },
+    sidebar: {}
 
 }
-
+window.state = state;
 export let addPost = (postMessage) => {
-    let newPost = {
-        id: 6,
-        post: postMessage
-    }
 
-    state.profilePage.post.push(newPost);
+    let newPost = {post: postMessage, id: 16};
+          state.profilePage.posts.push(newPost);
+
+
+
    rerenderEntireTree(state);
-};
+ };
+
+/*
+export let updateNewPostText = (newText) => {
+state.profilePage.
+}
+*/
 
 export default state;
 

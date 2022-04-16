@@ -6,9 +6,9 @@ const Inputform = (props) => {
 
     let newPostElement = React.createRef();
     let addPost = () => {
-
-        let text = newPostElement.current.value;
+       let text = newPostElement.current.value;
         props.addPost(text)
+        newPostElement.current.value=''
     };
 
     return (
@@ -16,7 +16,7 @@ const Inputform = (props) => {
             <div className={s.new_post__title}>My posts</div>
             <div className={`${s.envir__new_post} ${s.new_post}`}>
                 <form  className={s.new_post_form}>
-                        <textarea className={s.form_area} ref={newPostElement}  cols="30" rows="5" placeholder="Add your post">
+                        <textarea className={s.form_area}  ref={newPostElement}  cols="30" rows="5" placeholder="Add your post">
 
                         </textarea>
                   {/* <Buttonsend />*/}

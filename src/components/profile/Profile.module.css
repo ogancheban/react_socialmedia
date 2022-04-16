@@ -49,13 +49,7 @@
 
 /* post---------------------------------------------------------------------------- */
 
-.envir__posts {
-    display: flex;
-    flex-direction: column;
-}
-.envir__posts > *:not(:last-child) {
-    margin: 0px 0px 20px 0px;
-}
+
 
 .new_post__title {
     font-weight: 600;

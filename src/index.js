@@ -1,12 +1,17 @@
-import React from 'react';
+/*import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from "react-router-dom";
-import state, {addPost} from "./Redux/State";
-import {rerenderEntireTree} from "./render";
 
+import reportWebVitals from './reportWebVitals';*/
+/*import {BrowserRouter} from "react-router-dom";
+import state from "./Redux/State";
+import  {addPost} from "./Redux/State";*/
+import reportWebVitals from './reportWebVitals';
+import {rerenderEntireTree} from "./render";
+import state from "./Redux/State";
+
+/*addPost('padlo')*/
 rerenderEntireTree(state);
 
 
