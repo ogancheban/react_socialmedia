@@ -3,14 +3,15 @@ import React from 'react'
 import s from "./MyPosts.module.css";
 import Post from "../InputForm/Post";
 import Inputform from "../InputForm/InputForm";
-import {addPost} from "../../../../Redux/State";
+/*import {addPost} from "../../../../Redux/State";*/
 
 
 
 const MyPosts = (props) => {
-
     let postElements = props.posts.map(post => <Post post={post.post}  /> )
-    debugger;
+    /*let addPost =() => {
+        props.addPost();
+    }*/
         return (
             <div className={s.envir__posts}>
 

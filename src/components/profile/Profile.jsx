@@ -26,10 +26,16 @@ const Profile = (props) => {
             <Baner />
             {userElement}
             <Inputform
-
-                addPost={props.addPost}/>
+                addPost={props.addPost}
+                /*newPostText={props.profilePage.newPostText}*/
+                updateNewPostText={props.updateNewPostText}
+            />
             <MyPosts posts = {props.myPosts.posts}
-                     addPost={props.addPost}/>
+                     newPostText={props.myPosts.newPostText}
+
+                     updateNewPostText={props.updateNewPostText}
+                     addPost={props.addPost}
+                     />
             {/*<MyPosts
                 posts ={props.state.profilePage.posts}
             />*/}
