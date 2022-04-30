@@ -7,17 +7,20 @@ let addPostActionCreator = () => {
 const Inputform = (props) => {
 
     let newPostElement = React.createRef();
+    debugger
     let addPost = (e) => {
         e.preventDefault()
-        let text = newPostElement.current.value
-        props.addPost(text);
-
-       /* newPostElement.current.value=''*/
+       /* let text = newPostElement.current.value*/
+        props.dispatch( {type: 'ADD-POST'})
+        newPostElement.current.value = ''
     };
     let onPostChange = () => {
+        debugger
         let text = newPostElement.current.value;
-        props.updateNewPostText(text)
-    }
+        /*props.updateNewPostText(text)*/
+        let action = {type: 'UPDATE-NEW-POST-TEXT', newPostText: text};
+        props.dispatch(action)
+    };
 
     return (
         <div>
@@ -26,11 +29,13 @@ const Inputform = (props) => {
                 <form  className={s.new_post_form}>
                         <textarea className={s.form_area}
                                   onChange={onPostChange}
-                                  ref={newPostElement}  cols="30" rows="5" placeholder="Add your post">
-
+                                  ref={newPostElement}  cols="30" rows="5"
+                                  placeholder="Add your post"
+                                   >
                         </textarea>
-                  {/* <Buttonsend />*/}
-                    <button className={s.form_btn}  onClick={ addPost }>Send</button>
+                         <button className={s.form_btn}
+                             onClick={ addPost }>Send
+                         </button>
                 </form>
 
             </div>

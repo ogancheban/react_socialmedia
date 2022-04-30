@@ -10,7 +10,7 @@ let store = {
                 {id: 6, post: 'ну что же - вперед!!'},
                 {id: 7, post: '!!!! добавлено из статену что же - вперед!!'}*/
             ],
-            newPostText: 'Evgen Kamasutra'
+            newPostText: ''
         },
 
 
@@ -35,35 +35,37 @@ let store = {
         sidebar: {}
 
     },
-    getState() {
-      return this._state
-    },
     _callSubscriber ()  {
         console.log('State Changed');
         console.log('State Changed');
     },
-    addPost (postMessage)  {
 
-        let newPost = {
-            id: 16,
-            post: this._state.profilePage.newPostText
-            /*post: postMessage*/
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-
-        this._callSubscriber (this._state);
-    },
-    updateNewPost (newPostText) {
-        this._state.profilePage.newPostText = newPostText
-            this._callSubscriber (this._state);
+    getState() {
+      return this._state
     },
     subscribe (observer) {
-this._callSubscriber = observer;
+        this._callSubscriber = observer;
+    },
+
+     dispatch (action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 16,
+                post: this._state.profilePage.newPostText
+                /*post: postMessage*/
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber (this._state);
+        }
+        else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newPostText
+            this._callSubscriber (this._state);
+        }
     }
+
 
 }
 
 export default store;
-
 window.store = store;
