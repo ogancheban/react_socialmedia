@@ -1,24 +1,22 @@
 import React from 'react'
 import s from './InputForm.module.css'
 import Buttonsend from "../../../buttons/Buttonsend";
-let addPostActionCreator = () => {
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../Redux/State";
 
-}
 const Inputform = (props) => {
 
     let newPostElement = React.createRef();
-    debugger
+
     let addPost = (e) => {
-        e.preventDefault()
-       /* let text = newPostElement.current.value*/
-        props.dispatch( {type: 'ADD-POST'})
+        e.preventDefault()       /* let text = newPostElement.current.value*/
+        props.dispatch( addPostActionCreator())
         newPostElement.current.value = ''
     };
     let onPostChange = () => {
-        debugger
+
         let text = newPostElement.current.value;
         /*props.updateNewPostText(text)*/
-        let action = {type: 'UPDATE-NEW-POST-TEXT', newPostText: text};
+        let action = updateNewPostTextActionCreator(text);
         props.dispatch(action)
     };
 

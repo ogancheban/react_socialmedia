@@ -12,9 +12,7 @@ import  {addPost} from "./Redux/State";
 
 
 const App = (props) => {
-
     return (
-
         <body>
         <div className="wrapper">
             <div className="fullscreen">
@@ -37,8 +35,7 @@ const App = (props) => {
                                 />}
                                 />
                                 <Route path="/dialogs" element={<Dialogs
-                                    state={props.state.messagesPage}
-
+                                       store = {props.store}
                                 />}
                                 />
                               {/*  <Route path="*" element={<NotFound />} />*/}

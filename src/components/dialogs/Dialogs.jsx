@@ -5,18 +5,22 @@ import {NavLink} from "react-router-dom";
 import Inmessage from "./Inmessage";
 import Outmessage from "./Outmessage";
 import Inputform from "../profile/Posts/InputForm/InputForm";
-
-
-
-
-
-
-
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../../Redux/State";
 
 const Dialogs = (props) => {
-    let dialogUsers = props.state.dialogdata.map( user =>  <Chatuser name={user.name} staus={user.status} id={user.id}
-                                                         image={user.image}/> )
-    let messageElements = props.state.dialogmessages.map( message => <Outmessage name={message.user} time={message.time} date={message.date} message={message.message}/>)
+    let state = props.store.getState().messagesPage;
+    let dialogUsers = state.dialogdata.map( user =>  <Chatuser name={user.name} staus={user.status} id={user.id}
+    image={user.image}/> )
+    let messageElements = state.dialogmessages.map( message => <Outmessage name={message.user} time={message.time} date={message.date} message={message.message}/>)
+ let newMessageBody = state.newMessageBody;
+    let onSendMessageClick = ()=> {
+        props.store.dispatch(sendMessageCreator());
+         }
+    let onNewMessageChange = (e)=> {
+        let body = e.target.value;
+        props.store.dispatch(updateNewMessageBodyCreator(body));
+
+    }
     return (
         <div className={`${s.main_page__envir} ${s.envir}`}>
 
@@ -42,12 +46,9 @@ const Dialogs = (props) => {
                         </div>
                         <i className="fa fa-star"></i>
                     </div>
-
-
                     <div className={s.chat_history}>
                         <ul>
                             {messageElements}
-
                           {/*  <li className={s.message_data}>
                                 <Inmessage name={dialogMessages[0].user} time={dialogMessages[0].time} date={dialogMessages[0].date}
                                            message={dialogMessages[0].message}/>
@@ -113,15 +114,18 @@ const Dialogs = (props) => {
 
                     </div>
 
-
                     <div className={`${s.chat_message} ${s.clearfix}`}>
-											<textarea name="message-to-send" id="message-to-send"
-                                                      placeholder="Type your message" rows="3"></textarea>
+											<textarea name="message-to-send"
+                                                      id="message-to-send"
+                                                      placeholder="Type your message"
+                                                      rows="3"
+                                            value={newMessageBody}
+                                            onChange={onNewMessageChange}></textarea>
 
                         {/*   <i className="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
                         <i className="fa fa-file-image-o"></i>*/}
 
-                        <button>Send</button>
+                        <button onClick={ onSendMessageClick }  >Send</button>
 
                     </div>
                     <Inputform />
