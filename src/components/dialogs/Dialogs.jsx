@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 import Inmessage from "./Inmessage";
 import Outmessage from "./Outmessage";
 import Inputform from "../profile/Posts/InputForm/InputForm";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../Redux/State";
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../../Redux/dialogs-reducer";
 
 const Dialogs = (props) => {
     let state = props.store.getState().messagesPage;

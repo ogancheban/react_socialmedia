@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './InputForm.module.css'
 import Buttonsend from "../../../buttons/Buttonsend";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../Redux/State";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../Redux/profile-reducer";
 
 const Inputform = (props) => {
 
