@@ -8,22 +8,23 @@ import Inputform from "../profile/Posts/InputForm/InputForm";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../Redux/dialogs-reducer";
 
 const Dialogs = (props) => {
-    let state = props.store.getState().messagesPage;
-    let dialogUsers = state.dialogdata.map( user =>  <Chatuser name={user.name} staus={user.status} id={user.id}
-    image={user.image}/> )
-    let messageElements = state.dialogmessages.map( message => <Outmessage name={message.user} time={message.time} date={message.date} message={message.message}/>)
- let newMessageBody = state.newMessageBody;
-    let onSendMessageClick = ()=> {
-        props.store.dispatch(sendMessageCreator());
-         }
-    let onNewMessageChange = (e)=> {
+    let state = props.messagesPage;
+    let dialogUsers = state.dialogdata.map(user => <Chatuser name={user.name} staus={user.status} id={user.id}
+                                                             image={user.image}/>)
+    let messageElements = state.dialogmessages.map(message => <Outmessage name={message.user} time={message.time}
+                                                                          date={message.date}
+                                                                          message={message.message}/>)
+    let newMessageBody = state.newMessageBody;
+    let onSendMessageClick = () => {
+        props.sendMessage();
+    }
+    let onNewMessageChange = (e) => {
         let body = e.target.value;
-        props.store.dispatch(updateNewMessageBodyCreator(body));
+        props.updateNewMessageBody(body);
 
     }
     return (
         <div className={`${s.main_page__envir} ${s.envir}`}>
-
             <div className={`${s.chat_body} ${s.clearfix}`}>
                 <div className={s.people_list}>
                     <div className="search">
@@ -128,8 +129,6 @@ const Dialogs = (props) => {
                         <button onClick={ onSendMessageClick }  >Send</button>
 
                     </div>
-                    <Inputform />
-
 
                 </div>
 

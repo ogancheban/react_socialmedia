@@ -4,9 +4,8 @@ import MyPosts from './Posts/Post/MyPosts'
 import Baner from "./user/Baner";
 import Inputform from "./Posts/InputForm/InputForm";
 import User from "./user/User";
-import {addPost} from "../../Redux/State";
-
-
+import {addPost} from "../../Redux/Store";
+import InputFormContainer from "./Posts/InputForm/InputFormContainer";
 
 
 const Profile = (props) => {
@@ -25,23 +24,14 @@ const Profile = (props) => {
         <div className={`${s.main_page__envir} ${s.envir}`}>
             <Baner />
             {userElement}
-            <Inputform
+            <InputFormContainer
+                store={props.store}
 
-                newPostText = {props.myPosts.newPostText}
                 /*addPost={props.addPost}
                 /!*newPostText={props.profilePage.newPostText}*!/
                 updateNewPostText={props.updateNewPostText}*/
-                dispatch = {props.dispatch}
+                /*dispatch = {props.dispatch}*/
             />
-             <MyPosts posts = {props.myPosts.posts}
-                     newPostText={props.myPosts.newPostText}
-                      dispatch = {props.dispatch}
-                     />
-            {/*<MyPosts
-                posts ={props.state.profilePage.posts}
-            />*/}
-            {/*{postElements}*/}
-
 
         </div>
     );

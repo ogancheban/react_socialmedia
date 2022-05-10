@@ -7,8 +7,9 @@ import Profile from "./components/profile/Profile";
 import Adverst from "./components/adverst/Adverst";
 import Dialogs from "./components/dialogs/Dialogs";
 import { Routes, Route, Link } from "react-router-dom";
-import state from "./Redux/State";
-import  {addPost} from "./Redux/State";
+import state from "./Redux/Store";
+import  {addPost} from "./Redux/Store";
+import DialogsContainer from "./components/dialogs/DialogsContainer";
 
 
 const App = (props) => {
@@ -28,13 +29,15 @@ const App = (props) => {
                             <Routes>
                                 {/*<Route path="/profile" element={<Profile />} />*/}
                                 <Route path="/profile" element={<Profile
-                                    myPosts ={props.state.profilePage}
-                                    /*addPost = {props.addPost}
-                                    updateNewPostText={props.updateNewPostText}*/
-                                    dispatch = {props.dispatch}
+                                    store={props.store}
+                                    /*myPosts ={props.state.profilePage}
+                                    /!*addPost = {props.addPost}
+                                    updateNewPostText={props.updateNewPostText}*!/
+                                    dispatch = {props.dispatch}*/
                                 />}
                                 />
-                                <Route path="/dialogs" element={<Dialogs
+
+                                <Route path="/dialogs" element={<DialogsContainer
                                        store = {props.store}
                                 />}
                                 />

@@ -2,22 +2,25 @@ import React from 'react'
 import s from './InputForm.module.css'
 import Buttonsend from "../../../buttons/Buttonsend";
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../Redux/profile-reducer";
+import Post from "./Post";
 
 const Inputform = (props) => {
 
-    let newPostElement = React.createRef();
+    let postElements = props.posts.map(post => <Post post={post.post} /> )
 
-    let addPost = (e) => {
-        e.preventDefault()       /* let text = newPostElement.current.value*/
-        props.dispatch( addPostActionCreator())
+    let newPostElement = React.createRef();
+    let onAddPost = (e) => {
+        e.preventDefault()
+        /* let text = newPostElement.current.value*/
+        props.addPost()
+       /* props.dispatch( addPostActionCreator())*/
         newPostElement.current.value = ''
     };
     let onPostChange = () => {
-
-        let text = newPostElement.current.value;
-        /*props.updateNewPostText(text)*/
-        let action = updateNewPostTextActionCreator(text);
-        props.dispatch(action)
+              let text = newPostElement.current.value;
+         props.updateNewPostText(text)
+        /*let action = updateNewPostTextActionCreator(text);*/
+        /*props.dispatch(action)*/
     };
 
     return (
@@ -32,10 +35,13 @@ const Inputform = (props) => {
                                    >
                         </textarea>
                          <button className={s.form_btn}
-                             onClick={ addPost }>Send
+                             onClick={onAddPost}>Send
                          </button>
                 </form>
 
+            </div>
+            <div className={s.envir__posts}>
+                {postElements}
             </div>
         </div>
 
