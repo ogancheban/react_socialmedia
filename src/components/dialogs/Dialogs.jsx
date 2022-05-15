@@ -9,10 +9,10 @@ import {sendMessageCreator, updateNewMessageBodyCreator} from "../../Redux/dialo
 
 const Dialogs = (props) => {
     let state = props.messagesPage;
-    let dialogUsers = state.dialogdata.map(user => <Chatuser name={user.name} staus={user.status} id={user.id}
+    let dialogUsers = state.dialogdata.map(user => <Chatuser name={user.name} staus={user.status} id={user.id} key={user.id}
                                                              image={user.image}/>)
     let messageElements = state.dialogmessages.map(message => <Outmessage name={message.user} time={message.time}
-                                                                          date={message.date}
+                                                                          date={message.date} key={message.id}
                                                                           message={message.message}/>)
     let newMessageBody = state.newMessageBody;
     let onSendMessageClick = () => {

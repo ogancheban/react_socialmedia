@@ -34,6 +34,12 @@ const Navbar = () => {
                 </li>
                 <li className={`${s.menu__item} ${s._item_last}`}>
                     <div className={s.menu__icon}>
+                        <img src="./img/menu icon/menu_05.svg" alt="Users"/>
+                    </div>
+                    <NavLink to="/users" className={s.menu__link}>Users</NavLink>
+                </li>
+                <li className={`${s.menu__item} ${s._item_last}`}>
+                    <div className={s.menu__icon}>
                         <img src="./img/menu icon/menu_05.svg" alt="Profile"/>
                     </div>
                     <NavLink to="/settings" className={s.menu__link}>Settings</NavLink>

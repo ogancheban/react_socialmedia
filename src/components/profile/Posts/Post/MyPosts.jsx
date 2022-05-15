@@ -6,7 +6,7 @@ import Inputform from "../InputForm/InputForm";
 /*import {addPost} from "../../../../Redux/State";*/
 
 const MyPosts = (props) => {
-   let postElements = props.posts.map(post => <Post post={post.post}  /> )
+   let postElements = props.posts.map(post => <Post post={post.post} key={post.id} /> )
     /*let addPost =() => {
         props.addPost();
     }*/

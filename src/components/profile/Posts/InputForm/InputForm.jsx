@@ -1,12 +1,10 @@
 import React from 'react'
 import s from './InputForm.module.css'
-import Buttonsend from "../../../buttons/Buttonsend";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../Redux/profile-reducer";
 import Post from "./Post";
 
 const Inputform = (props) => {
 
-    let postElements = props.posts.map(post => <Post post={post.post} /> )
+    let postElements = props.posts.map(post => <Post post={post.post} key={post.id} /> )
 
     let newPostElement = React.createRef();
     let onAddPost = (e) => {
@@ -14,7 +12,7 @@ const Inputform = (props) => {
         /* let text = newPostElement.current.value*/
         props.addPost()
        /* props.dispatch( addPostActionCreator())*/
-        newPostElement.current.value = ''
+        /*newPostElement.current.value = ''*/
     };
     let onPostChange = () => {
               let text = newPostElement.current.value;
@@ -31,6 +29,7 @@ const Inputform = (props) => {
                         <textarea className={s.form_area}
                                   onChange={onPostChange}
                                   ref={newPostElement}  cols="30" rows="5"
+                                  value={props.newPostText}
                                   placeholder="Add your post"
                                    >
                         </textarea>

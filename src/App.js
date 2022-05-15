@@ -1,15 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import './App.css';
 import Header from "./components/header/Header";
 import Navbar from "./components/navbar/Navbar";
 import Profile from "./components/profile/Profile";
 import Adverst from "./components/adverst/Adverst";
-import Dialogs from "./components/dialogs/Dialogs";
-import { Routes, Route, Link } from "react-router-dom";
-import state from "./Redux/Store";
-import  {addPost} from "./Redux/Store";
+import {Route, Routes} from "react-router-dom";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
+import UsersContainer from "./components/users/UsersContainer";
 
 
 const App = (props) => {
@@ -41,11 +39,16 @@ const App = (props) => {
                                        store = {props.store}
                                 />}
                                 />
-                              {/*  <Route path="*" element={<NotFound />} />*/}
+                                <Route path="*" element={<div>Not Found !!!</div>} />
 
                               {/*  <Route path="/profile" render={<Profile />} />
                                 <Route path="/dialogs" render={<Dialogs />} />*/}
+                                <Route path="/users"
+                                       element={ <UsersContainer />}
+
+                                />
                             </Routes>
+
 
                             </div>
                         </div>
