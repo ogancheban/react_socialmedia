@@ -1,10 +1,29 @@
 import React from 'react'
 import s from './Users.module.css'
+/*import {Axios as axios} from "axios";*/
+import * as axios from "axios";
+import userimg from '../../assets/images/userimg.png'
 
 
-const Users = (props) => {
-    if (props.users.length === 0) {
-        props.setUsers(
+class Users extends React.Component {
+    constructor(props) {
+        super(props);
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            this.props.setUsers(response.data.items)
+        })
+        /*if (this.props.users.length === 0) {
+
+            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+                this.props.setUsers(response.data.items)
+            })
+
+        }*/
+    }
+
+    getUsers = () => {
+
+
+        /*props.setUsers(
             [
                 {id: 1, followed: true, fullname: 'Robert', image: 'https://images11.cosmopolitan.ru/upload/img_cache/5d9/5d97e9b3ae4707044862d1dbdf790647_cropped_630x420.jpg', status: 'I m fine',
                     location: {city: 'Taganrog', country: 'Russia'}},
@@ -21,30 +40,41 @@ const Users = (props) => {
                     status: 'I m fine',
                     location: {city: 'New York', country: 'USA'}}
             ]
-        )
+        )*/
     }
 
-    return <div className={`${s.main_page__envir} ${s.envir}`}>{
-        props.users.map(u => <div key={u.id} >
-            <div className={s.imgContainer}>
-                <img src={u.image} className={s.usersImg}/>
-                </div>
-            <div>
-                {u.followed ?
-                    <button onClick={() => {props.follow(u.id)}}>follow</button> :
-                    <button onClick={() => {props.unfollow(u.id)}}>unfollow</button>}
+    render() {
+        return <div className={`${s.main_page__envir} ${s.envir}`}>
 
-            </div>
-            <div>
-                <div>{u.fullname}</div>
-                <div>{u.status}</div>
-            </div>
-            <div>
-                <div>{u.location.city}</div>
-                <div>{u.location.country}</div>
-            </div>
-        </div>)
-    }</div>
+
+            {
+                this.props.users.map(u => <div key={u.id}>
+                    <div className={s.imgContainer}>
+                        <img src={u.photos.small != null ? u.photos.small : userimg} className={s.usersImg}/>
+                    </div>
+                    <div>
+                        {u.followed ?
+                            <button onClick={() => {
+                                this.props.follow(u.id)
+                            }}>follow</button> :
+                            <button onClick={() => {
+                                this.props.unfollow(u.id)
+                            }}>unfollow</button>}
+
+                    </div>
+                    <div>
+                        <div>{u.name}</div>
+                        <div>{u.status}</div>
+                    </div>
+                    <div>
+                        <div>{"u.location.city"}</div>
+                        <div>{"u.location.country"}</div>
+                    </div>
+                </div>)
+            }
+        </div>
+    }
 
 }
+
 export default Users;
