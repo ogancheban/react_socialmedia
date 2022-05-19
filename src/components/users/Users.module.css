@@ -84,6 +84,39 @@
 }
 .new_post_form {
 }
+.form_btn {
+    background: #3d44f1;
+    border: 1px solid #e6e6e6;
+    border-radius: 20px;
+    display: flex;
+    min-height: 30px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    transition: all 0.3s ease 0s;
+    padding: 0px 15px;
+    margin-left: auto;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 117%;
+}
+.selectedPage {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 117%;
+
+}
+span {
+    padding: 0 5px;
+    cursor: pointer;
+}
+.spanContainer {
+    display: flex;
+
+    max-width: 600px;
+}
 
 
 
