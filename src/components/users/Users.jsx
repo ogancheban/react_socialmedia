@@ -1,6 +1,8 @@
 import React from "react";
 import s from "./Users.module.css";
 import userimg from "../../assets/images/userimg.png";
+import { NavLink, activeClassName } from 'react-router-dom';
+
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -18,35 +20,43 @@ let Users = (props) => {
             })}
         </div>
 
-        {
-            props.users.map(u => <div key={u.id}>
+        <div className={s.userContainer}>
+            {
+                props.users.map(u => <div key={u.id}>
 
-                <div>
-                    <div className={s.imgContainer}>
-                        <img src={u.photos.small != null ? u.photos.small : userimg} className={s.usersImg}/>
-                    </div>
-                    <div>
-                        {u.followed ?
-                            <button className={s.form_btn} onClick={() => {
-                                props.follow(u.id)
-                            }}>follow</button> :
-                            <button className={s.form_btn} onClick={() => {
-                                props.unfollow(u.id)
-                            }}>unfollow</button>}
+                    <div className={s.userCard}>
+                        <div className={s.imgContainer}>
+                            <NavLink to={'/profile/' + u.id}>
+                                <img src={u.photos.small != null ? u.photos.small : userimg} className={s.usersImg}/>
+                            </NavLink>
 
-                    </div>
-                    <div>
-                        <div>{u.name}</div>
-                        <div>{u.status}</div>
-                    </div>
-                    <div>
-                        <div>{"u.location.city"}</div>
-                        <div>{"u.location.country"}</div>
-                    </div>
-                </div>
+                        </div>
+                        <div>
+                            <div className={s.userName}>{u.name}</div>
+                            <div className={s.userStatus}>{u.status}</div>
+                        </div>
+                        <div>
+                            {u.followed ?
+                                <button className={s.form_btn} onClick={() => {
+                                    props.follow(u.id)
+                                }}>follow</button> :
+                                <button className={s.form_btn} onClick={() => {
+                                    props.unfollow(u.id)
+                                }}>unfollow</button>}
 
-            </div>)
-        }
+                        </div>
+
+                        <div>
+                            <div>{"u.location.city"}</div>
+                            <div>{"u.location.country"}</div>
+                        </div>
+                    </div>
+
+                </div>)
+            }
+        </div>
+
+
     </div>
 
 }

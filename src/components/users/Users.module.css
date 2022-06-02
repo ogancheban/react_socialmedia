@@ -4,15 +4,16 @@
     --base-color: #f8f8f8;
     --text-color: #34305c;
 }
-._container {
-    max-width: 1320px;
-    padding: 0px 15px;
-    margin: 0px auto;
-    box-sizing: content-box;
+
+.userCard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+
 }
-.fullscreen {
-    min-height: 100vh;
-}
+
 .imgContainer {
     position: relative;
     /*max-width: 100px;*/
@@ -30,6 +31,12 @@
     border-radius: 50%;
     border: 1px solid #3d44f1;
 }
+.userName {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 115%;
+}
+
 /*._ibg {
     position: relative;
 }*/
@@ -117,6 +124,12 @@ span {
     display: flex;
 flex-wrap: wrap;
     max-width: 600px;
+}
+.userContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    row-gap: 20px;
 }
 
 
