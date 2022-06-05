@@ -8,6 +8,7 @@ import Adverst from "./components/adverst/Adverst";
 import {Route, Routes} from "react-router-dom";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
 import UsersContainer from "./components/users/UsersContainer";
+import ProfileContainer from "./components/profile/ProfileContainer";
 
 
 const App = (props) => {
@@ -25,31 +26,21 @@ const App = (props) => {
                                     <Adverst/>
                                 </div>
                             <Routes>
-                                {/*<Route path="/profile" element={<Profile />} />*/}
-                                <Route path="/profile" element={<Profile
-                                    store={props.store}
-                                    /*myPosts ={props.state.profilePage}
-                                    /!*addPost = {props.addPost}
-                                    updateNewPostText={props.updateNewPostText}*!/
-                                    dispatch = {props.dispatch}*/
-                                />}
-                                />
+
+                                <Route path="/profile" element={<ProfileContainer />}  />
 
                                 <Route path="/dialogs" element={<DialogsContainer
                                        store = {props.store}
                                 />}
                                 />
-                                <Route path="*" element={<div>Not Found !!!</div>} />
+                               {/* <Route path="*" element={<div>Not Found !!!</div>} />*/}
 
                               {/*  <Route path="/profile" render={<Profile />} />
                                 <Route path="/dialogs" render={<Dialogs />} />*/}
                                 <Route path="/users"
                                        element={ <UsersContainer />}
-
                                 />
                             </Routes>
-
-
                             </div>
                         </div>
                     </section>

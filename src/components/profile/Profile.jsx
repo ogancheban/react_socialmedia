@@ -9,6 +9,7 @@ import InputFormContainer from "./Posts/InputForm/InputFormContainer";
 
 
 const Profile = (props) => {
+/*
 
     let UserData =[
         {id: 1, name:'Elena', surname:'Smith', birth:'2 Feb', city:'New York',
@@ -18,21 +19,14 @@ const Profile = (props) => {
     // let postElements = props.state.post.map(p => <MyPosts post={p.post}  /> )
     let userElement = UserData.map(u => <User name={u.name} surname={u.surname} birth={u.birth} city={u.city}
                                     edu={u.edu} web={u.web} />)
+*/
 
 
     return (
         <div className={`${s.main_page__envir} ${s.envir}`}>
-            <Baner />
-            {userElement}
-            <InputFormContainer
-                store={props.store}
-
-                /*addPost={props.addPost}
-                /!*newPostText={props.profilePage.newPostText}*!/
-                updateNewPostText={props.updateNewPostText}*/
-                /*dispatch = {props.dispatch}*/
-            />
-
+            {/*<Baner/>
+            {userElement}*/}
+           <User profile = {props.profile}/>
         </div>
     );
 }

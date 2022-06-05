@@ -1,0 +1,12 @@
+import preloader from "../../assets/images/icons8-спиннер,-кадр-4-30.png";
+import React from "react";
+
+let Preloader = (props) => {
+return (
+    <div style = { {backgroundColor: "white"}}>
+        <img src={preloader} />
+    </div>
+)
+}
+
+export default Preloader;
