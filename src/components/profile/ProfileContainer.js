@@ -4,11 +4,25 @@ import Profile from "./Profile";
 import * as axios from "axios";
 import {connect} from "react-redux";
 import {setUserProfile} from "../../Redux/profile-reducer";
+import {useParams} from "react-router";
 
+
+const withRouter = WrappedComponent => props => {
+    const params = useParams();
+    // etc... other react-router-dom v6 hooks
+    return (
+        <WrappedComponent
+            {...props}
+            params={params}
+            // etc...
+        />
+    );
+};
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+        let userId = this.props.params.userId;
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+userId)
             .then(response => {
                  this.props.setUserProfile(response.data)
             })
@@ -28,4 +42,7 @@ let mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, {setUserProfile})  (ProfileContainer);
+
+let WithUrlDataContainerComponent = withRouter(ProfileContainer);
+
+export default connect(mapStateToProps, {setUserProfile})  (WithUrlDataContainerComponent);

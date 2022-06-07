@@ -3,12 +3,13 @@ import React from 'react';
 import './App.css';
 import Header from "./components/header/Header";
 import Navbar from "./components/navbar/Navbar";
-import Profile from "./components/profile/Profile";
 import Adverst from "./components/adverst/Adverst";
 import {Route, Routes} from "react-router-dom";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
 import UsersContainer from "./components/users/UsersContainer";
 import ProfileContainer from "./components/profile/ProfileContainer";
+import {useParams} from "react-router";
+
 
 
 const App = (props) => {
@@ -26,8 +27,10 @@ const App = (props) => {
                                     <Adverst/>
                                 </div>
                             <Routes>
-
-                                <Route path="/profile" element={<ProfileContainer />}  />
+                                <Route path="/profile" element={<ProfileContainer />}>
+                                    <Route path=":userId" element={<ProfileContainer />} />
+                                </Route>
+                               {/* <Route path="/profile" element={<ProfileContainer />}  />*/}
 
                                 <Route path="/dialogs" element={<DialogsContainer
                                        store = {props.store}
